@@ -21,7 +21,7 @@ export default function Navbar() {
       cursor: 'pointer',
     };
 
-    return null; // Placeholder to avoid incomplete function
+    return null;
   }
 
   return (
