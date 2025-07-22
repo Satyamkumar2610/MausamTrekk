@@ -1,5 +1,5 @@
 'use client';
-
+import Link from 'next/link';
 import React from "react";
 
 const HeroSection = () => {
@@ -15,7 +15,6 @@ const HeroSection = () => {
         justifyContent: "center",
       }}
     >
-      {/* Background Image */}
       <img
         src="https://cdn.pixabay.com/photo/2019/08/23/01/28/mountain-4424657_1280.jpg"
         alt="Beautiful mountain landscape"
@@ -29,7 +28,6 @@ const HeroSection = () => {
         }}
       />
       
-      {/* Optimized Gradient Overlay for mountain landscape */}
       <div
         style={{
           position: "absolute",
@@ -39,7 +37,6 @@ const HeroSection = () => {
         }}
       />
       
-      {/* Content Container */}
       <div
         style={{
           position: "relative",
@@ -50,12 +47,11 @@ const HeroSection = () => {
           margin: "0 auto",
         }}
       >
-        {/* Main Heading */}
         <h1
           style={{
             fontSize: "3.5rem",
             fontWeight: "700",
-            lineHeight: "1.1",
+            lineHeight: "1.4",
             marginBottom: "1.5rem",
             backgroundImage: 'linear-gradient(135deg, #ffffff 0%, #f1f5f9 30%, #e2e8f0 70%, #ffffff 100%)',
             WebkitBackgroundClip: 'text',
@@ -69,7 +65,6 @@ const HeroSection = () => {
           प्रकृति से जुड़े हर सफर में भारत का एहसास
         </h1>
         
-        {/* Subtitle */}
         <p
           style={{
             fontSize: "1.5rem",
@@ -85,7 +80,6 @@ const HeroSection = () => {
           "मौसम का मिज़ाज, MausamTrek के साथ।"
         </p>
         
-        {/* CTA Buttons */}
         <div 
           style={{ 
             display: "flex", 
@@ -94,6 +88,7 @@ const HeroSection = () => {
             flexWrap: "wrap",
           }}
         >
+          <Link href="/weather">
           <button
             style={{
               background: "linear-gradient(135deg, #0f766e 0%, #0d9488 50%, #14b8a6 100%)",
@@ -122,6 +117,7 @@ const HeroSection = () => {
           >
             Check Weather
           </button>
+          </Link>
           
           <button
             style={{
@@ -154,9 +150,7 @@ const HeroSection = () => {
         </div>
       </div>
       
-      {/* CSS Animation */}
       <style jsx>{`
-        /* Additional styles can be added here if needed */
       `}</style>
     </div>
   );
