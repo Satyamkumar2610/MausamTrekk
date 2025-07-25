@@ -234,6 +234,7 @@ export default function WeatherPage() {
                     <div key={day.dt} className="forecast-day">
                       <p>{formatDate(day.dt_txt)}</p>
                       <img src={iconUrl(day.weather[0].icon)} alt="" style={{width: '50px', height: '50px'}}/>
+                      
                       <p className="temp">{Math.round(day.main.temp)}°</p>
                     </div>
                   ))}

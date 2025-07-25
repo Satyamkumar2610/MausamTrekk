@@ -148,7 +148,7 @@ export default function Navbar() {
           </li>
           <li>
             <Link
-              href="/blog"
+              href="/Blog"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -175,7 +175,7 @@ export default function Navbar() {
           </li>
           <li>
             <Link
-              href="/contact"
+              href="/help"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -333,7 +333,7 @@ export default function Navbar() {
                 Weather
               </Link>
               <Link
-                href="/blog"
+                href="/Blog"
                 onClick={closeMenu}
                 style={{
                   display: 'flex',
@@ -358,7 +358,7 @@ export default function Navbar() {
                 Blog
               </Link>
               <Link
-                href="/contact"
+                href="/help"
                 onClick={closeMenu}
                 style={{
                   display: 'flex',
