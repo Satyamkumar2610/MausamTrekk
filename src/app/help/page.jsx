@@ -4,6 +4,7 @@
 // It will automatically be wrapped by the Navbar and Footer from layout.js.
 "use client";
 import { useState, useEffect, useRef } from 'react';
+import Navbar from '../components/Navbar';
 
 const API_KEY = "AIzaSyDa9UqBDbWM1AdlDCyMsVLwm-_fBJuIrq0";
 
@@ -205,6 +206,7 @@ export default function HelpPage() {
 
   return (
     <>
+    <Navbar/>
       <HelpPageStyles />
       <div className="help-page-layout">
         <div className="chat-dashboard">
