@@ -1,0 +1,111 @@
+[debug] [2025-07-27T08:44:51.034Z] ----------------------------------------------------------------------
+[debug] [2025-07-27T08:44:51.038Z] Command:       /opt/homebrew/Cellar/node/23.10.0_1/bin/node /opt/homebrew/bin/firebase login
+[debug] [2025-07-27T08:44:51.038Z] CLI Version:   14.11.1
+[debug] [2025-07-27T08:44:51.039Z] Platform:      darwin
+[debug] [2025-07-27T08:44:51.039Z] Node Version:  v23.10.0
+[debug] [2025-07-27T08:44:51.039Z] Time:          Sun Jul 27 2025 14:14:51 GMT+0530 (India Standard Time)
+[debug] [2025-07-27T08:44:51.039Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-27T08:44:51.040Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] i  The Firebase CLI’s MCP server feature can optionally make use of Gemini in Firebase. Learn more about Gemini in Firebase and how it uses your data: https://firebase.google.com/docs/gemini-in-firebase#how-gemini-in-firebase-uses-your-data 
+[debug] [2025-07-27T08:44:52.257Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-07-27T08:44:52.258Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[warn] ⚠  Unable to fetch the CLI MOTD and remote config. This is not a fatal error, but may indicate an issue with your network connection. 
+[debug] [2025-07-27T08:44:52.259Z] Failed to fetch MOTD Error: EACCES: permission denied, mkdir '/Users/satyamkumar/.config/configstore'
+You don't have access to this file.
+
+[debug] [2025-07-27T08:49:38.464Z] ExitPromptError: User force closed the prompt with SIGINT
+    at Interface.sigint (/opt/homebrew/lib/node_modules/firebase-tools/node_modules/@inquirer/core/dist/commonjs/lib/create-prompt.js:101:37)
+    at Interface.emit (node:events:507:28)
+    at Interface.emit (node:domain:489:12)
+    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1129:18)
+    at ReadStream.onkeypress (node:internal/readline/interface:268:20)
+    at ReadStream.emit (node:events:519:35)
+    at ReadStream.emit (node:domain:489:12)
+    at emitKeys (node:internal/readline/utils:370:14)
+    at emitKeys.next (<anonymous>)
+    at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-07-27T08:49:38.742Z] Error: EACCES: permission denied, mkdir '/Users/satyamkumar/.config/configstore'
+You don't have access to this file.
+
+    at Object.mkdirSync (node:fs:1361:26)
+    at module.exports.sync (/opt/homebrew/lib/node_modules/firebase-tools/node_modules/make-dir/index.js:114:6)
+    at set all (/opt/homebrew/lib/node_modules/firebase-tools/node_modules/configstore/index.js:59:12)
+    at Configstore.set (/opt/homebrew/lib/node_modules/firebase-tools/node_modules/configstore/index.js:91:12)
+    at process.<anonymous> (/opt/homebrew/lib/node_modules/firebase-tools/lib/bin/cli.js:62:39)
+    at process.emit (node:events:519:35)
+    at process.exit (node:internal/process/per_thread:226:15)
+    at Timeout._onTimeout (/opt/homebrew/lib/node_modules/firebase-tools/lib/errorOut.js:20:17)
+    at listOnTimeout (node:internal/timers:611:17)
+    at process.processTimers (node:internal/timers:546:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-07-27T08:49:44.228Z] ----------------------------------------------------------------------
+[debug] [2025-07-27T08:49:44.230Z] Command:       /opt/homebrew/Cellar/node/23.10.0_1/bin/node /opt/homebrew/bin/firebase login
+[debug] [2025-07-27T08:49:44.230Z] CLI Version:   14.11.1
+[debug] [2025-07-27T08:49:44.230Z] Platform:      darwin
+[debug] [2025-07-27T08:49:44.230Z] Node Version:  v23.10.0
+[debug] [2025-07-27T08:49:44.230Z] Time:          Sun Jul 27 2025 14:19:44 GMT+0530 (India Standard Time)
+[debug] [2025-07-27T08:49:44.230Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-27T08:49:44.231Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] i  The Firebase CLI’s MCP server feature can optionally make use of Gemini in Firebase. Learn more about Gemini in Firebase and how it uses your data: https://firebase.google.com/docs/gemini-in-firebase#how-gemini-in-firebase-uses-your-data 
+[debug] [2025-07-27T08:49:44.952Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-07-27T08:49:44.952Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[warn] ⚠  Unable to fetch the CLI MOTD and remote config. This is not a fatal error, but may indicate an issue with your network connection. 
+[debug] [2025-07-27T08:49:44.953Z] Failed to fetch MOTD Error: EACCES: permission denied, mkdir '/Users/satyamkumar/.config/configstore'
+You don't have access to this file.
+
+[debug] [2025-07-27T08:50:02.962Z] Error: EACCES: permission denied, mkdir '/Users/satyamkumar/.config/configstore'
+You don't have access to this file.
+
+    at Object.mkdirSync (node:fs:1361:26)
+    at module.exports.sync (/opt/homebrew/lib/node_modules/firebase-tools/node_modules/make-dir/index.js:114:6)
+    at set all (/opt/homebrew/lib/node_modules/firebase-tools/node_modules/configstore/index.js:59:12)
+    at Configstore.set (/opt/homebrew/lib/node_modules/firebase-tools/node_modules/configstore/index.js:91:12)
+    at Command.actionFn (/opt/homebrew/lib/node_modules/firebase-tools/lib/commands/login.js:33:35)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-07-27T08:50:03.231Z] Error: EACCES: permission denied, mkdir '/Users/satyamkumar/.config/configstore'
+You don't have access to this file.
+
+    at Object.mkdirSync (node:fs:1361:26)
+    at module.exports.sync (/opt/homebrew/lib/node_modules/firebase-tools/node_modules/make-dir/index.js:114:6)
+    at set all (/opt/homebrew/lib/node_modules/firebase-tools/node_modules/configstore/index.js:59:12)
+    at Configstore.set (/opt/homebrew/lib/node_modules/firebase-tools/node_modules/configstore/index.js:91:12)
+    at process.<anonymous> (/opt/homebrew/lib/node_modules/firebase-tools/lib/bin/cli.js:62:39)
+    at process.emit (node:events:519:35)
+    at process.exit (node:internal/process/per_thread:226:15)
+    at Timeout._onTimeout (/opt/homebrew/lib/node_modules/firebase-tools/lib/errorOut.js:20:17)
+    at listOnTimeout (node:internal/timers:611:17)
+    at process.processTimers (node:internal/timers:546:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-07-27T08:56:48.435Z] ----------------------------------------------------------------------
+[debug] [2025-07-27T08:56:48.440Z] Command:       /opt/homebrew/Cellar/node/23.10.0_1/bin/node /opt/homebrew/bin/firebase login
+[debug] [2025-07-27T08:56:48.440Z] CLI Version:   14.11.1
+[debug] [2025-07-27T08:56:48.440Z] Platform:      darwin
+[debug] [2025-07-27T08:56:48.440Z] Node Version:  v23.10.0
+[debug] [2025-07-27T08:56:48.440Z] Time:          Sun Jul 27 2025 14:26:48 GMT+0530 (India Standard Time)
+[debug] [2025-07-27T08:56:48.441Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-27T08:56:48.441Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] i  The Firebase CLI’s MCP server feature can optionally make use of Gemini in Firebase. Learn more about Gemini in Firebase and how it uses your data: https://firebase.google.com/docs/gemini-in-firebase#how-gemini-in-firebase-uses-your-data 
+[debug] [2025-07-27T08:56:48.671Z] *** [apiv2] error from fetch(https://firebase-public.firebaseio.com/cli.json, {"headers":{},"method":"GET"}): FetchError: request to https://firebase-public.firebaseio.com/cli.json failed, reason: Client network socket disconnected before secure TLS connection was established
+[warn] ⚠  Unable to fetch the CLI MOTD and remote config. This is not a fatal error, but may indicate an issue with your network connection. 
+[debug] [2025-07-27T08:56:48.672Z] Failed to fetch MOTD FirebaseError: Failed to make request to https://firebase-public.firebaseio.com/cli.json
+[debug] [2025-07-27T09:27:37.525Z] ExitPromptError: User force closed the prompt with SIGINT
+    at Interface.sigint (/opt/homebrew/lib/node_modules/firebase-tools/node_modules/@inquirer/core/dist/commonjs/lib/create-prompt.js:101:37)
+    at Interface.emit (node:events:507:28)
+    at Interface.emit (node:domain:489:12)
+    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1129:18)
+    at ReadStream.onkeypress (node:internal/readline/interface:268:20)
+    at ReadStream.emit (node:events:519:35)
+    at ReadStream.emit (node:domain:489:12)
+    at emitKeys (node:internal/readline/utils:370:14)
+    at emitKeys.next (<anonymous>)
+    at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+[error] 
+[error] Error: An unexpected error has occurred.

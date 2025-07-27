@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Home, Info, CloudSun, BookOpen, HelpCircle, Menu, X } from 'lucide-react';
+import { Home, Info, CloudSun, BookOpen, HelpCircle, Menu, X, LogOut } from 'lucide-react';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = React.useState(false);
@@ -66,162 +66,41 @@ export default function Navbar() {
           className="desktop-menu"
         >
           <li>
-            <Link
-              href="/"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '8px 16px',
-                borderRadius: '6px',
-                color: '#374151',
-                textDecoration: 'none',
-                fontSize: '14px',
-                fontWeight: '500',
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#f0f9ff';
-                e.target.style.color = '#0891b2';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.color = '#374151';
-              }}
-            >
-              <Home size={16} />
-              Home
+            <Link href="/" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+              <Home size={16} /> Home
             </Link>
           </li>
           <li>
-            <Link
-              href="/about"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '8px 16px',
-                borderRadius: '6px',
-                color: '#374151',
-                textDecoration: 'none',
-                fontSize: '14px',
-                fontWeight: '500',
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#f0f9ff';
-                e.target.style.color = '#0891b2';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.color = '#374151';
-              }}
-            >
-              <Info size={16} />
-              About
+            <Link href="/about" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+              <Info size={16} /> About
             </Link>
           </li>
           <li>
-            <Link
-              href="/weather"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '8px 16px',
-                borderRadius: '6px',
-                color: '#374151',
-                textDecoration: 'none',
-                fontSize: '14px',
-                fontWeight: '500',
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#f0f9ff';
-                e.target.style.color = '#0891b2';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.color = '#374151';
-              }}
-            >
-              <CloudSun size={16} />
-              Weather
+            <Link href="/weather" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+              <CloudSun size={16} /> Weather
             </Link>
           </li>
           <li>
-            <Link
-              href="/blog"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '8px 16px',
-                borderRadius: '6px',
-                color: '#374151',
-                textDecoration: 'none',
-                fontSize: '14px',
-                fontWeight: '500',
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#f0f9ff';
-                e.target.style.color = '#0891b2';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.color = '#374151';
-              }}
-            >
-              <BookOpen size={16} />
-              Blog
+            <Link href="/blog" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+              <BookOpen size={16} /> Blog
             </Link>
           </li>
           <li>
-            <Link
-              href="/help"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '8px 16px',
-                borderRadius: '6px',
-                color: '#374151',
-                textDecoration: 'none',
-                fontSize: '14px',
-                fontWeight: '500',
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#f0f9ff';
-                e.target.style.color = '#0891b2';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.color = '#374151';
-              }}
-            >
-              <HelpCircle size={16} />
-              Help
+            <Link href="/help" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+              <HelpCircle size={16} /> Help
+            </Link>
+          </li>
+          <li>
+            <Link href="/login" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+              <LogOut size={16} /> Log Out
             </Link>
           </li>
         </ul>
 
         <button
           onClick={handleMenuToggle}
-          style={{
-            display: 'none',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '8px',
-            backgroundColor: 'transparent',
-            border: 'none',
-            borderRadius: '4px',
-            color: '#374151',
-            cursor: 'pointer',
-          }}
+          style={mobileMenuBtnStyle}
           className="mobile-menu-btn"
-          onMouseOver={(e) => {
-            e.target.style.backgroundColor = '#f3f4f6';
-          }}
-          onMouseOut={(e) => {
-            e.target.style.backgroundColor = 'transparent';
-          }}
         >
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -229,158 +108,26 @@ export default function Navbar() {
 
       {menuOpen && (
         <div>
-          <div
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
-              zIndex: 10,
-            }}
-            onClick={closeMenu}
-          />
-          <div
-            style={{
-              position: 'absolute',
-              top: '100%',
-              right: '24px',
-              backgroundColor: 'white',
-              borderRadius: '8px',
-              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-              padding: '16px',
-              zIndex: 20,
-              minWidth: '180px',
-              border: '1px solid #e5e7eb',
-            }}
-            className="mobile-menu"
-          >
+          <div style={overlayStyle} onClick={closeMenu} />
+          <div style={mobileMenuStyle} className="mobile-menu">
             <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-              <Link
-                href="/"
-                onClick={closeMenu}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 16px',
-                  borderRadius: '6px',
-                  color: '#374151',
-                  textDecoration: 'none',
-                  fontSize: '16px',
-                }}
-                onMouseOver={(e) => {
-                  e.target.style.backgroundColor = '#f0f9ff';
-                  e.target.style.color = '#0891b2';
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.backgroundColor = 'transparent';
-                  e.target.style.color = '#374151';
-                }}
-              >
-                <Home size={18} />
-                Home
+              <Link href="/" onClick={closeMenu} style={mobileLinkStyle} onMouseOver={handleMobileMouseOver} onMouseOut={handleMobileMouseOut}>
+                <Home size={18} /> Home
               </Link>
-              <Link
-                href="/about"
-                onClick={closeMenu}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 16px',
-                  borderRadius: '6px',
-                  color: '#374151',
-                  textDecoration: 'none',
-                  fontSize: '16px',
-                }}
-                onMouseOver={(e) => {
-                  e.target.style.backgroundColor = '#f0f9ff';
-                  e.target.style.color = '#0891b2';
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.backgroundColor = 'transparent';
-                  e.target.style.color = '#374151';
-                }}
-              >
-                <Info size={18} />
-                blog
+              <Link href="/about" onClick={closeMenu} style={mobileLinkStyle} onMouseOver={handleMobileMouseOver} onMouseOut={handleMobileMouseOut}>
+                <Info size={18} /> About
               </Link>
-              <Link
-                href="/weather"
-                onClick={closeMenu}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 16px',
-                  borderRadius: '6px',
-                  color: '#374151',
-                  textDecoration: 'none',
-                  fontSize: '16px',
-                }}
-                onMouseOver={(e) => {
-                  e.target.style.backgroundColor = '#f0f9ff';
-                  e.target.style.color = '#0891b2';
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.backgroundColor = 'transparent';
-                  e.target.style.color = '#374151';
-                }}
-              >
-                <CloudSun size={18} />
-                Weather
+              <Link href="/weather" onClick={closeMenu} style={mobileLinkStyle} onMouseOver={handleMobileMouseOver} onMouseOut={handleMobileMouseOut}>
+                <CloudSun size={18} /> Weather
               </Link>
-              <Link
-                href="/blog"
-                onClick={closeMenu}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 16px',
-                  borderRadius: '6px',
-                  color: '#374151',
-                  textDecoration: 'none',
-                  fontSize: '16px',
-                }}
-                onMouseOver={(e) => {
-                  e.target.style.backgroundColor = '#f0f9ff';
-                  e.target.style.color = '#0891b2';
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.backgroundColor = 'transparent';
-                  e.target.style.color = '#374151';
-                }}
-              >
-                <BookOpen size={18} />
-                Blog
+              <Link href="/blog" onClick={closeMenu} style={mobileLinkStyle} onMouseOver={handleMobileMouseOver} onMouseOut={handleMobileMouseOut}>
+                <BookOpen size={18} /> Blog
               </Link>
-              <Link
-                href="/help"
-                onClick={closeMenu}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 16px',
-                  borderRadius: '6px',
-                  color: '#374151',
-                  textDecoration: 'none',
-                  fontSize: '16px',
-                }}
-                onMouseOver={(e) => {
-                  e.target.style.backgroundColor = '#f0f9ff';
-                  e.target.style.color = '#0891b2';
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.backgroundColor = 'transparent';
-                  e.target.style.color = '#374151';
-                }}
-              >
-                <HelpCircle size={18} />
-                Help
+              <Link href="/help" onClick={closeMenu} style={mobileLinkStyle} onMouseOver={handleMobileMouseOver} onMouseOut={handleMobileMouseOut}>
+                <HelpCircle size={18} /> Help
+              </Link>
+              <Link href="/login" onClick={closeMenu} style={mobileLinkStyle} onMouseOver={handleMobileMouseOver} onMouseOut={handleMobileMouseOut}>
+                <LogOut size={18} /> Log Out
               </Link>
             </div>
           </div>
@@ -388,7 +135,7 @@ export default function Navbar() {
       )}
 
       <style jsx>{`
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
           .desktop-menu {
             display: none !important;
           }
@@ -400,3 +147,93 @@ export default function Navbar() {
     </div>
   );
 }
+
+const linkStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '8px',
+  padding: '8px 16px',
+  borderRadius: '6px',
+  color: '#374151',
+  textDecoration: 'none',
+  fontSize: '14px',
+  fontWeight: '500',
+  transition: 'background-color 0.2s, color 0.2s',
+};
+
+const mobileLinkStyle = {
+  ...linkStyle,
+  padding: '12px 16px',
+  fontSize: '16px',
+};
+
+const handleMouseOver = (e) => {
+  let target = e.target;
+  while(target.tagName !== 'A') {
+    target = target.parentElement;
+  }
+  target.style.backgroundColor = '#f0f9ff';
+  target.style.color = '#0891b2';
+};
+
+const handleMouseOut = (e) => {
+  let target = e.target;
+  while(target.tagName !== 'A') {
+    target = target.parentElement;
+  }
+  target.style.backgroundColor = 'transparent';
+  target.style.color = '#374151';
+};
+
+const handleMobileMouseOver = (e) => {
+  let target = e.target;
+  while(target.tagName !== 'A') {
+    target = target.parentElement;
+  }
+  target.style.backgroundColor = '#f0f9ff';
+  target.style.color = '#0891b2';
+};
+
+const handleMobileMouseOut = (e) => {
+  let target = e.target;
+  while(target.tagName !== 'A') {
+    target = target.parentElement;
+  }
+  target.style.backgroundColor = 'transparent';
+  target.style.color = '#374151';
+};
+
+const mobileMenuBtnStyle = {
+  display: 'none',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '8px',
+  backgroundColor: 'transparent',
+  border: 'none',
+  borderRadius: '4px',
+  color: '#374151',
+  cursor: 'pointer',
+};
+
+const overlayStyle = {
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  zIndex: 10,
+};
+
+const mobileMenuStyle = {
+  position: 'absolute',
+  top: '100%',
+  right: '24px',
+  backgroundColor: 'white',
+  borderRadius: '8px',
+  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+  padding: '16px',
+  zIndex: 20,
+  minWidth: '180px',
+  border: '1px solid #e5e7eb',
+};

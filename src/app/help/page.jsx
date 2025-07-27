@@ -1,77 +1,94 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
+import Navbar from '../components/Navbar';
 
 const API_KEY = "AIzaSyDa9UqBDbWM1AdlDCyMsVLwm-_fBJuIrq0";
 
 const styles = {
-  pageLayout: {
-    fontFamily: "'Inter', -apple-system, sans-serif",
-    minHeight: 'calc(100vh - 70px)',
-    padding: '40px',
+  pageContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    minHeight: '100vh',
+    padding: '2rem',
     backgroundImage: "url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2774&auto=format&fit=crop')",
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundAttachment: 'fixed',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    gap: '40px',
-    flexWrap: 'wrap',
+    fontFamily: "'Inter', -apple-system, sans-serif",
   },
-  card: {
-    background: 'rgba(255, 255, 255, 0.9)',
-    backdropFilter: 'blur(12px)',
-    borderRadius: '20px',
-    boxShadow: '0 8px 30px rgba(0, 0, 0, 0.1)',
-    border: '1px solid rgba(255, 255, 255, 0.2)',
+  mainCard: {
+    width: '100%',
+    maxWidth: '1100px',
+    background: 'rgba(255, 255, 255, 0.88)',
+    backdropFilter: 'blur(15px)',
+    borderRadius: '24px',
+    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.15)',
+    border: '1px solid rgba(255, 255, 255, 0.3)',
+    display: 'grid',
+    gridTemplateColumns: '1fr 2fr',
+    overflow: 'hidden',
+    '@media (maxWidth: 900px)': {
+      gridTemplateColumns: '1fr',
+      maxHeight: '90vh',
+      overflowY: 'auto',
+    }
   },
-  contactCard: {
-    flex: '1 1 300px',
-    maxWidth: '400px',
-    padding: '30px',
+  contactSection: {
+    padding: '2.5rem',
+    borderRight: '1px solid rgba(0, 0, 0, 0.08)',
+    backgroundColor: 'rgba(0, 0, 0, 0.02)',
+    '@media (maxWidth: 900px)': {
+      borderRight: 'none',
+      borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
+    }
   },
-  helpCenterCard: {
-    flex: '2 1 500px',
-    maxWidth: '650px',
-    display: 'flex',
-    flexDirection: 'column',
-    height: 'calc(85vh - 80px)', 
-    maxHeight: '700px',
-  },
-  cardTitle: {
-    fontSize: '1.8rem',
-    color: '#1a2b3c',
+  sectionTitle: {
+    fontSize: '1.5rem',
     fontWeight: 600,
-    margin: '0 0 15px 0',
-    paddingBottom: '15px',
-    borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
+    color: '#1a2b3c',
+    marginBottom: '1rem',
   },
   contactDesc: {
     fontSize: '0.95rem',
-    lineHeight: 1.7,
+    lineHeight: 1.6,
     color: '#5a6470',
-    marginBottom: '20px',
+    marginBottom: '1.5rem',
   },
   adminInfo: {
-    marginTop: '20px',
+    marginTop: '1.5rem',
+    padding: '1rem',
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+    borderRadius: '12px',
   },
   adminName: {
-    fontWeight: '600',
+    fontWeight: 600,
     color: '#0056b3',
+    margin: '0 0 0.25rem 0',
   },
   adminEmail: {
     fontSize: '0.9rem',
     color: '#34495e',
     textDecoration: 'none',
+    wordBreak: 'break-all',
   },
-  mainContent: {
-    padding: '15px 30px 30px 30px',
+  helpCenterSection: {
+    display: 'flex',
+    flexDirection: 'column',
+    padding: '2.5rem',
     overflowY: 'auto',
-    flexGrow: 1,
+    maxHeight: 'calc(90vh - 5rem)',
   },
+  helpCenterTitle: {
+    fontSize: '2rem',
+    color: '#1a2b3c',
+    fontWeight: 700,
+    marginBottom: '2rem',
+  },
+  faqContainer: {},
   faqItem: {
-    padding: '15px 0',
-    borderBottom: '1px solid #e9ecef',
+    padding: '1rem 0',
+    borderBottom: '1px solid #e0e5eb',
   },
   faqQuestion: {
     fontWeight: 600,
@@ -79,69 +96,118 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     color: '#2c3e50',
+    fontSize: '1.05rem',
   },
   faqAnswer: {
-    paddingTop: '10px',
+    paddingTop: '0.75rem',
     lineHeight: 1.6,
     color: '#5a6470',
+    fontSize: '0.95rem',
   },
   aiSection: {
-    marginTop: '30px',
+    marginTop: '2.5rem',
+    borderTop: '1px solid #e0e5eb',
+    paddingTop: '2rem',
   },
   aiHeader: {
-    fontSize: '1.2rem',
+    fontSize: '1.25rem',
     fontWeight: 600,
     color: '#1a2b3c',
-    marginBottom: '15px',
+    marginBottom: '1rem',
   },
   chatWindow: {
-    height: '200px',
-    backgroundColor: 'rgba(241, 245, 249, 0.8)',
+    height: '220px',
+    backgroundColor: '#f1f5f9',
     borderRadius: '12px',
-    padding: '15px',
+    padding: '1rem',
     overflowY: 'auto',
     display: 'flex',
     flexDirection: 'column',
-    gap: '10px',
-    marginBottom: '15px',
+    gap: '0.75rem',
+    marginBottom: '1rem',
+    border: '1px solid #e2e8f0',
   },
   messageBubble: {
-    padding: '8px 12px',
-    borderRadius: '15px',
-    maxWidth: '80%',
+    padding: '0.6rem 1rem',
+    borderRadius: '18px',
+    maxWidth: '85%',
     lineHeight: 1.5,
+    fontSize: '0.95rem',
   },
   userMessage: {
     backgroundColor: '#007AFF',
     color: 'white',
     alignSelf: 'flex-end',
+    borderRadius: '18px 18px 4px 18px',
   },
   assistantMessage: {
     backgroundColor: '#E9E9EB',
     color: '#2C2C2E',
     alignSelf: 'flex-start',
+    borderRadius: '18px 18px 18px 4px',
+  },
+  loadingIndicator: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '4px',
+  },
+  loadingDot: {
+    width: '8px',
+    height: '8px',
+    backgroundColor: '#9ca3af',
+    borderRadius: '50%',
+    animation: 'pulse 1.4s infinite ease-in-out both',
   },
   aiForm: {
     display: 'flex',
-    gap: '10px',
+    gap: '0.5rem',
+    backgroundColor: '#f1f5f9',
+    borderRadius: '12px',
+    padding: '0.5rem',
+    border: '1px solid #e2e8f0',
   },
   aiInput: {
     flexGrow: 1,
-    padding: '12px 15px',
-    border: '1px solid #d0d7de',
+    padding: '0.75rem',
+    border: 'none',
     borderRadius: '8px',
     fontSize: '1rem',
+    backgroundColor: 'white',
+    '&:focus': {
+      outline: '2px solid #34B3F1',
+    }
   },
   aiButton: {
     border: 'none',
     background: 'linear-gradient(135deg, #2E73E8 0%, #34B3F1 100%)',
     color: 'white',
-    padding: '0 20px',
+    padding: '0 1.5rem',
     borderRadius: '8px',
     cursor: 'pointer',
-    fontWeight: '500',
+    fontWeight: 500,
+    fontSize: '1rem',
+    transition: 'opacity 0.2s',
+    '&:disabled': {
+      opacity: 0.6,
+      cursor: 'not-allowed',
+    }
   },
 };
+
+const LoadingMessage = () => (
+  <div style={{...styles.messageBubble, ...styles.assistantMessage, ...styles.loadingIndicator}}>
+    <span style={{...styles.loadingDot, animationDelay: '0s'}}></span>
+    <span style={{...styles.loadingDot, animationDelay: '0.2s'}}></span>
+    <span style={{...styles.loadingDot, animationDelay: '0.4s'}}></span>
+    <style>{`
+      @keyframes pulse {
+        0%, 80%, 100% { transform: scale(0); }
+        40% { transform: scale(1.0); }
+      }
+    `}</style>
+  </div>
+);
+
 
 const FAQItem = ({ q, a }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -149,24 +215,25 @@ const FAQItem = ({ q, a }) => {
     <div style={styles.faqItem}>
       <div style={styles.faqQuestion} onClick={() => setIsOpen(!isOpen)}>
         <span>{q}</span>
-        <span>{isOpen ? '−' : '+'}</span>
+        <span style={{ transform: isOpen ? 'rotate(45deg)' : 'rotate(0)', transition: 'transform 0.2s' }}>+</span>
       </div>
       {isOpen && <p style={styles.faqAnswer}>{a}</p>}
     </div>
   );
 };
 
+
 export default function HelpPage() {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([
-    { role: 'assistant', content: "Hi! I'm your AI assistant. How can I help?" }
+    { role: 'assistant', content: "Hi! I'm your AI assistant. How can I help with your weather or travel questions?" }
   ]);
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [messages, isLoading]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -190,49 +257,64 @@ export default function HelpPage() {
         }),
       });
 
+      if (!response.ok) {
+        throw new Error(`API request failed with status ${response.status}`);
+      }
+      
       const data = await response.json();
-      const reply = data.candidates[0]?.content?.parts[0]?.text;
+      const reply = data.candidates?.[0]?.content?.parts?.[0]?.text;
 
       if (!reply) throw new Error("No response from AI.");
 
       setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
 
     } catch (error) {
-      const errorMessage = { role: 'assistant', content: "Sorry, something went wrong. Please try again." };
+      console.error("Error fetching AI response:", error);
+      const errorMessage = { role: 'assistant', content: "Sorry, I'm having trouble connecting right now. Please try again later." };
       setMessages(prev => [...prev, errorMessage]);
     } finally {
       setIsLoading(false);
     }
   };
+  
+  const getResponsiveStyles = (styleObject) => {
+    if (typeof window !== 'undefined' && window.matchMedia("(max-width: 900px)").matches) {
+      return { ...styleObject, ...styleObject['@media (maxWidth: 900px)'] };
+    }
+    return styleObject;
+  };
 
   return (
-    <div style={styles.pageLayout}>
+
+    <>
+    <Navbar />
+    <div style={styles.pageContainer}>
       
-      <div style={{...styles.card, ...styles.contactCard}}>
-        <h2 style={styles.cardTitle}>Contact Administrator</h2>
-        <p style={styles.contactDesc}>Have a question or suggestion? Reach out directly to our administrator.</p>
-        <div style={styles.adminInfo}>
-          <p style={styles.adminName}>Satyam Kumar</p>
-          <a href="mailto:satyam.kumars2024@nst.rishihood.edu.in" style={styles.adminEmail}>
-            satyam.kumars2024@nst.rishihood.edu.in
-          </a>
-        </div>
-      </div>
+      <div style={getResponsiveStyles(styles.mainCard)}>
+        <section style={getResponsiveStyles(styles.contactSection)}>
+          <h2 style={styles.sectionTitle}>Contact Administrator</h2>
+          <p style={styles.contactDesc}>Have a question or a suggestion? Feel free to reach out directly.</p>
+          <div style={styles.adminInfo}>
+            <p style={styles.adminName}>Satyam Kumar</p>
+            <a href="mailto:satyam.kumars2024@nst.rishihood.edu.in" style={styles.adminEmail}>
+              satyam.kumars2024@nst.rishihood.edu.in
+            </a>
+          </div>
+        </section>
 
-      <div style={{...styles.card, ...styles.helpCenterCard}}>
-        <header style={{padding: '25px 30px'}}>
-          <h2 style={{...styles.cardTitle, borderBottom: 'none', paddingBottom: 0, margin: 0}}>Help Center</h2>
-        </header>
-
-        <main style={styles.mainContent}>
-          <FAQItem 
-            q="How accurate is the weather forecast?" 
-            a="We use data from leading global providers to give you the most accurate forecasts possible." 
-          />
-          <FAQItem 
-            q="Can I save my favorite locations?" 
-            a="This feature is coming soon! You will be able to log in and save your favorite cities." 
-          />
+        <main style={styles.helpCenterSection}>
+          <h1 style={styles.helpCenterTitle}>Help Center</h1>
+          
+          <div style={styles.faqContainer}>
+            <FAQItem 
+              q="How accurate is the weather forecast?" 
+              a="We aggregate data from leading global meteorological providers to deliver forecasts with the highest possible accuracy for your location." 
+            />
+            <FAQItem 
+              q="Can I save my favorite locations?" 
+              a="This feature is coming soon in a future update! You will be able to create an account to save and manage your favorite cities." 
+            />
+          </div>
           
           <div style={styles.aiSection}>
             <h3 style={styles.aiHeader}>AI Assistant</h3>
@@ -242,24 +324,25 @@ export default function HelpPage() {
                   {msg.content}
                 </div>
               ))}
-              {isLoading && <div style={{...styles.messageBubble, ...styles.assistantMessage}}>...</div>}
+              {isLoading && <LoadingMessage />}
               <div ref={messagesEndRef} />
             </div>
             <form onSubmit={handleSubmit} style={styles.aiForm}>
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about weather, travel, etc..."
+                placeholder="Ask about weather, travel..."
                 style={styles.aiInput}
                 disabled={isLoading}
               />
-              <button type="submit" style={styles.aiButton} disabled={isLoading}>
-                {isLoading ? '...' : 'Ask'}
+              <button type="submit" style={styles.aiButton} disabled={isLoading || !input.trim()}>
+                Ask
               </button>
             </form>
           </div>
         </main>
       </div>
     </div>
+    </>
   );
 }

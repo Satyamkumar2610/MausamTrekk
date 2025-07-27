@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const AboutPageStyles = () => (
   <style jsx global>{`
@@ -72,6 +73,7 @@ export default function AboutPage() {
             At MausamTrek, we understand the specific needs of an Indian user. Our app provides detailed, location-specific forecasts, from bustling cities like Mumbai to remote villages in Ladakh. We aim to give you the most accurate data, so you can spend less time worrying about the weather and more time enjoying the incredible beauty of India.
           </p>
         </main>
+        <Footer />
       </div>
     </>
   );

@@ -1,8 +1,8 @@
 "use client";
 import React from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
-// All styles are now JavaScript objects
 const styles = {
   pageLayout: {
     fontFamily: 'Inter, -apple-system, sans-serif',
@@ -143,26 +143,22 @@ const styles = {
   },
 };
 
-
-// This is your main Blog Page component
 export default function BlogPage() {
   return (
-
     <div style={styles.pageLayout}>
       <Navbar />
-      {/* 1. HERO SECTION */}
       <header style={styles.heroSection}>
         <h1 style={styles.heroTitle}>Your Adventure Awaits.</h1>
         <p style={styles.heroSubtitle}>Discover India's hidden gems with MausamTrek's travel blog, your guide to the perfect weather-proof journey.</p>
       </header>
 
-      {/* 2. FEATURED BLOGS SECTION */}
       <section style={styles.section}>
         <h2 style={styles.sectionTitle}>Featured Stories</h2>
         <div style={styles.featuredGrid}>
           
           <div style={styles.blogCard}>
-            <img src="https://images.unsplash.com/photo-1605499223587-d0a503253d5a?q=80&w=2574&auto=format&fit=crop" alt="Waterfalls in Lonavala" style={styles.cardImage} />
+            {/* --- NEW VERIFIED Lonavala Image Link --- */}
+            <img src="https://images.unsplash.com/photo-1614082242765-7c9de_e544d2?q=80&w=2574&auto=format&fit=crop" alt="Waterfalls in Lonavala" style={styles.cardImage} />
             <div style={styles.cardContent}>
               <span style={styles.cardTag}>#monsoonmagic</span>
               <h3 style={styles.cardTitle}>Chasing Waterfalls in Lonavala</h3>
@@ -173,7 +169,8 @@ export default function BlogPage() {
           </div>
 
           <div style={styles.blogCard}>
-            <img src="https://images.unsplash.com/photo-1617743382407-9c9a6a3b8ddc?q=80&w=2574&auto=format&fit=crop" alt="Himalayan Village" style={styles.cardImage} />
+            {/* --- NEW VERIFIED Himalayan Village Image Link --- */}
+            <img src="https://www.google.com/imgres?q=himalayan%20village%20pintrest&imgurl=https%3A%2F%2Fi.pinimg.com%2F474x%2Fb7%2F7c%2Fdf%2Fb77cdfbc850b55dd2f3363bb38e31497.jpg&imgrefurl=https%3A%2F%2Fwww.pinterest.com%2Fideas%2Fhimalayan-village%2F954632217814%2F&docid=-kiCfr4d4ZUmvM&tbnid=PYr0qc0lpUqgTM&vet=12ahUKEwjGjumat9yOAxV3Z_UHHfzoIYEQM3oECAwQAA..i&w=474&h=592&hcb=2&ved=2ahUKEwjGjumat9yOAxV3Z_UHHfzoIYEQM3oECAwQAA" alt="Himalayan Village" style={styles.cardImage} />
             <div style={styles.cardContent}>
               <span style={styles.cardTag}>#himalayanescape</span>
               <h3 style={styles.cardTitle}>Finding a Sun-Kissed Himalayan Village</h3>
@@ -186,7 +183,6 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* 3. DISCOVER MORE IDEAS SECTION */}
       <section style={{...styles.section, backgroundColor: '#fff'}}>
         <h2 style={styles.sectionTitle}>Discover More with MausamTrek</h2>
         <div style={styles.ideasGrid}>
@@ -208,7 +204,6 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* 4. REVIEWS & EXPERIENCES SECTION */}
       <section style={styles.section}>
         <h2 style={styles.sectionTitle}>Journeys Powered by MausamTrek</h2>
         <div style={styles.reviewsGrid}>
@@ -241,7 +236,7 @@ export default function BlogPage() {
 
         </div>
       </section>
-
+      <Footer />
     </div>
   );
 }
