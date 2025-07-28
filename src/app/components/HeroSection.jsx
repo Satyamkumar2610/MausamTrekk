@@ -118,7 +118,7 @@ const HeroSection = () => {
             Check Weather
           </button>
           </Link>
-          <Link href="/blog">
+          <Link href="/Blog">
           <button
             style={{
               background: "linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%)",

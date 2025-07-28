@@ -81,7 +81,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="/blog" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+            <Link href="/Blog" style={linkStyle} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
               <BookOpen size={16} /> Blog
             </Link>
           </li>
