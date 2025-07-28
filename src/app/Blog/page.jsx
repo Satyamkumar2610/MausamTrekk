@@ -236,7 +236,7 @@ export default function BlogPage() {
 
         </div>
       </section>
-      <Footer />
+      <Footer></Footer>
     </div>
   );
 }

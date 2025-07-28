@@ -65,7 +65,7 @@ export default function SignupPage() {
   );
 }
 
-// --- Component Styles ---
+
 const styles = {
   pageWrapper: {
     minHeight: '100vh',

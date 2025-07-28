@@ -120,7 +120,7 @@ export default function Navbar() {
               <Link href="/weather" onClick={closeMenu} style={mobileLinkStyle} onMouseOver={handleMobileMouseOver} onMouseOut={handleMobileMouseOut}>
                 <CloudSun size={18} /> Weather
               </Link>
-              <Link href="/blog" onClick={closeMenu} style={mobileLinkStyle} onMouseOver={handleMobileMouseOver} onMouseOut={handleMobileMouseOut}>
+              <Link href="/Blog" onClick={closeMenu} style={mobileLinkStyle} onMouseOver={handleMobileMouseOver} onMouseOut={handleMobileMouseOut}>
                 <BookOpen size={18} /> Blog
               </Link>
               <Link href="/help" onClick={closeMenu} style={mobileLinkStyle} onMouseOver={handleMobileMouseOver} onMouseOut={handleMobileMouseOut}>

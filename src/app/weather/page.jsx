@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import { Search, MapPin, Wind, Droplets } from 'lucide-react';
+import Footer from '../components/Footer';
 
 export default function WeatherPage() {
   const [city, setCity] = useState("Sonipat");
@@ -115,12 +116,16 @@ export default function WeatherPage() {
             </>
           )}
         </div>
+        
       </main>
+      <Footer />
+    
+      
     </div>
   );
 }
 
-// --- Component Styles (No Tailwind) ---
+
 const styles = {
     pageWrapper: {
         fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',

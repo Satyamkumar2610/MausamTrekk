@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const API_KEY = "AIzaSyDa9UqBDbWM1AdlDCyMsVLwm-_fBJuIrq0";
 
@@ -343,6 +344,7 @@ export default function HelpPage() {
         </main>
       </div>
     </div>
+    <Footer />
     </>
   );
 }
